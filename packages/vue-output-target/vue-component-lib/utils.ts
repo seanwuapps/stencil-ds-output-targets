@@ -83,7 +83,7 @@ export const defineContainer = <Props, VModelType = string | number | boolean>(
       if (vnode.el) {
         const eventsNames = Array.isArray(modelUpdateEvent) ? modelUpdateEvent : [modelUpdateEvent];
         eventsNames.forEach((eventName: string) => {
-          vnode.el!.addEventListener(eventName.toLowerCase(), (e: Event) => {
+          vnode.el!.addEventListener(eventName, (e: Event) => {
             modelPropValue = (e?.target as any)[modelProp];
             emit(UPDATE_VALUE_EVENT, modelPropValue);
 
